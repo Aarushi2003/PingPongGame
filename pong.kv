@@ -1,0 +1,85 @@
+#:kivy 1.0.9
+
+
+<PongBall>:
+    size: 25, 25 
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size          
+
+<Player>:
+    size: 30, 200
+    color: 1,0,0,1
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: 30, 100
+
+<PongGame>:
+    pong_ball: pong_ball
+    player1: player_x
+    player2: player_y
+    player1_score: player1_score_one
+    player2_score: player2_score_two
+    player1_name: player1_name
+    player2_name: player2_name
+    splash_screen: splash_screen
+    winning_splash: winning_splash
+    canvas:
+        Color: 
+            rgb: [1,0,0]
+        Rectangle:
+            pos: 0, 0
+            size: self.width, self.height
+        Color: 
+            rgb: [1,1,0]
+#        Rectangle:
+#            pos: self.center_x - 5, 0
+#            size: 10, self.height
+    Label:
+        id: player1_score_one
+        font_size: 70  
+        center_x: root.width / 4
+        top: root.top - 50
+        text: "0"
+    Label:
+        id: player1_name
+        font_size: 30  
+        center_x: root.width / 4
+        top: root.top - 100
+        text: "xxxx"
+        
+    Label:
+        id: player2_score_two
+        font_size: 70  
+        center_x: root.width * 3 / 4
+        top: root.top - 50
+        text: "0"
+    Label:
+        id: player2_name
+        font_size: 30  
+        center_x: root.width * 3/ 4
+        top: root.top - 100
+        text: "xxxx"
+    
+    PongBall:
+        id: pong_ball
+        center: self.parent.center
+    Player:
+        id: player_x
+    Player:
+        id: player_y
+    Label:
+        id: splash_screen
+        text: 'Welcome to Air Hockey'
+        center_x: root.width / 2
+        top: root.top - 50
+        font_size: 70
+    Label:
+        id: winning_splash
+        text: 'Game over'
+        center_x: root.width / 2
+        top: root.top - 200
+        font_size: 70
+        bcolor: 1, 1, 0, 1

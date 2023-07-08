@@ -1,0 +1,41 @@
+<UserNamesInputForm>:
+    p1_name: p1_name
+    p2_name: p2_name
+    BoxLayout:
+        orientation: 'vertical'
+        pos: 200,400
+        size: 400, 100
+        canvas:
+            Color: 
+                rgb: [.5,.25,0]
+            Rectangle:
+                pos: self.pos
+                size: self.width, self.height
+
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: "Player 1"
+                size_hint:1.0, 1.0
+            TextInput:
+                id: p1_name
+                size_hint:1.0, 1.0
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                id: lbl_name
+                text: "Player 2"
+                size_hint:1.0, 1.0
+            TextInput:
+                id: p2_name
+                size_hint:1.0, 1.0
+
+        BoxLayout:
+            Button:
+                id: btn_save
+                text: 'Save'
+                on_press: root.save_names()
+            Button:
+                id: btn_cancel
+                text: 'Cancel'
+                on_press: root.clear_widget()
